@@ -14,3 +14,7 @@ Usage
 run ```bash node app.js ```
 
 Open <a href="http://localhost:3000/">http://localhost:3000/</a>
+
+Demo
+====
+<a href="http://urucas.com/simple-camera-preview/">http://urucas.com/simple-camera-preview/</a>
