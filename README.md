@@ -3,6 +3,11 @@ simple-camera-preview
 
 A simple html5 code to stream a camera preview
 
+Install
+=======
+git clone https://github.com/Urucas/simple-camera-preview
+npm install
+
 Usage
 =====
 run ```bash node app.js ```
