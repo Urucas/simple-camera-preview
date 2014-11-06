@@ -1,0 +1,21 @@
+{
+  "name": "camera-preview",
+  "version": "0.0.0",
+  "description": "simple camera html 5 preview ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "camera",
+    "simple",
+    "html5",
+    "preview",
+    "video"
+  ],
+  "author": "Urucas <hello@urucas.com> (http://urucas.com/)",
+  "license": "MIT",
+  "dependencies": {
+    "require": "^2.4.17"
+  }
+}

@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+<head>
+<style>
+body {
+	margin:0px;
+	padding:0px;
+	height:100%;
+	width:100%;
+}
+video {
+	width:auto;
+	height:100%;
+}
+button {
+	padding:10px;
+	font-size: 18px;
+	color:#fff;
+	background-color:#333;
+	border-radius:8px;
+	border:1px solid #333;
+	cursor:pointer;
+}
+.buttons{
+	position:absolute;
+	top:10px;
+	right:10px;
+	text-align:center;
+}
+</style>
+</head>
+<body>
+<video id="basic-stream" class="videostream" autoplay="" controls=""></video>
+<div class="buttons">
+	<button id="capture-button">Capture video</button>
+	<button id="stop-button">Stop</button>
+</div>
+<script>
+
+var video = document.getElementById("basic-stream");
+window.addEventListener("DOMContentLoaded", function() {
+	// Grab elements, create settings, etc.
+	var videoObj = { "video": true },
+	errBack = function(error) {
+		console.log("Video capture error: ", error.code); 
+	};
+
+	// Put video listeners into place
+	if(navigator.getUserMedia) { // Standard
+		navigator.getUserMedia(videoObj, function(stream) {
+			video.src = stream;
+			video.play();
+		}, errBack);
+		
+	}else if(navigator.webkitGetUserMedia) { // WebKit-prefixed
+		navigator.webkitGetUserMedia(videoObj, function(stream){
+			video.src = window.webkitURL.createObjectURL(stream);
+			video.play();
+		}, errBack);
+	
+	}else if(navigator.mozGetUserMedia) { // Firefox-prefixed
+		navigator.mozGetUserMedia(videoObj, function(stream){
+			video.src = window.URL.createObjectURL(stream);
+			video.play();
+		}, errBack);
+	}
+}, false);
+
+document.getElementById("capture-button").addEventListener("click", function(){
+	video.play();
+});
+
+document.getElementById("stop-button").addEventListener("click", function(){
+video.pause();
+});
+</script>
+</body>
+</html>
